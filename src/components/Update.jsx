@@ -27,7 +27,7 @@ const Update=()=>{
     return;
   }
 
-  await axios.put(`http://localhost:5000/update/${id}`, {
+  await axios.put(`https://expense-tracker-backend-production-114e.up.railway.app/${id}`, {
     title: title.trim(),
     expense: Number(expense),
     category: category.trim(),
@@ -40,7 +40,7 @@ const Update=()=>{
 
 
     useEffect(() => {
-           axios.get("http://localhost:5000/getCat")
+           axios.get("https://expense-tracker-backend-production-114e.up.railway.app/getCat")
               .then(res => setCategoryList(res.data))
               .catch(err => console.error("Error fetching categories", err));
         }, []);

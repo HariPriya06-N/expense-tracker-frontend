@@ -12,20 +12,20 @@ const Category=()=>{
     const [msg,setMsg]=useState([]);
     
     const getCat = async () => {
-      const res=await axios.get("http://localhost:5000/getCat");
+      const res=await axios.get("https://expense-tracker-backend-production-114e.up.railway.app/getCat");
       setMsg(res.data);
     }
 
     const insertCat=async()=>{
-        await axios.post(`http://localhost:5000/insertCat`,{"name":ref1.current.value});
+        await axios.post(`https://expense-tracker-backend-production-114e.up.railway.app/insertCat`,{"name":ref1.current.value});
          getCat();
     }
     const deleteCat=async(id)=>{
-        await axios.delete(`http://localhost:5000/delCat/${id}`)
+        await axios.delete(`https://expense-tracker-backend-production-114e.up.railway.app/delCat/${id}`)
         getCat();
     }
     const updateCat=async(id)=>{
-        await axios.put(`http://localhost:5000/updateCat/${id}`,{id:editid,name:editname})
+        await axios.put(`https://expense-tracker-backend-production-114e.up.railway.app/updateCat/${id}`,{id:editid,name:editname})
         setEditid(null);
         setEditname("");
         getCat();

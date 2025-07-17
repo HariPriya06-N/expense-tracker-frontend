@@ -8,7 +8,7 @@ const CategoryList = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/categories");
+        const res = await axios.get("https://expense-tracker-backend-production-114e.up.railway.app/categories");
         setCategories(res.data);
       } catch (err) {
         console.error("Error fetching categories:", err);

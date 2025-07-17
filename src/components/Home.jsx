@@ -9,13 +9,13 @@ const Home=()=>{
     const [obj,setObj]=useState([]);
 
     const getExpense=async()=>{
-        const res=await axios.get("http://localhost:5000/get");
+        const res=await axios.get("https://expense-tracker-backend-production-114e.up.railway.app/get");
         const{data}=res;
         setObj(data);
 
     }
     const delete_expense=async(id)=>{
-        const res=await axios.delete(`http://localhost:5000/delete/${id}`);
+        const res=await axios.delete(`https://expense-tracker-backend-production-114e.up.railway.app/delete/${id}`);
         getExpense();
     }
     const insertExpense=()=>{
