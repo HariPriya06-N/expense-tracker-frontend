@@ -7,11 +7,13 @@ import Category from "./Category";
 const Home=()=>{
     const navigate=useNavigate();
     const [obj,setObj]=useState([]);
-    
+    const [loading, setLoading] = useState(true);
     const getExpense=async()=>{
+        setLoading(true);
         const res=await axios.get("https://expense-tracker-backend-production-114e.up.railway.app/get");
         const{data}=res;
         setObj(data);
+        setLoading(false);
 
     }
     const delete_expense=async(id)=>{
@@ -39,38 +41,39 @@ const Home=()=>{
         
         <div className="container">
             <button className="addButton" onClick={insertExpense}>Add Expense</button>
-        <div className="tableWrapper">
-            <table className ="insertTable" border={2} cellPadding={10} cellSpacing={10} >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Expense</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    obj.map((ele,index)=>{
-                        return(<tr key={ele.id}>
-                           <td>{index + 1}</td>
-                           <td>{ele.title}</td>
-                           <td>{ele.expense}</td>
-                           <td>{ele.category}</td>
-                           <td>{ele.date}</td>
-                           <td><i className="fa fa-edit" onClick={()=>navigate("/update", {state:{expense1:ele}})}></i></td>
-                           <td><i className=" fa fa-trash" onClick={()=>delete_expense(ele.id)}></i></td>
-                        </tr>)
+        {loading ? (
+  <div className="loading">Loading...</div>
+) : (
+  <div className="tableWrapper">
+    <table className="insertTable" border={2} cellPadding={10} cellSpacing={10}>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Expense</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {obj.map((ele, index) => (
+          <tr key={ele.id}>
+            <td>{index + 1}</td>
+            <td>{ele.title}</td>
+            <td>{ele.expense}</td>
+            <td>{ele.category}</td>
+            <td>{ele.date}</td>
+            <td><i className="fa fa-edit" onClick={() => navigate("/update", { state: { expense1: ele } })}></i></td>
+            <td><i className="fa fa-trash" onClick={() => delete_expense(ele.id)}></i></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
 
-                    }
-                )}
-            </tbody>
-            <tfoot></tfoot>
-        </table>
-        </div>
         </div>
         </>
     )
