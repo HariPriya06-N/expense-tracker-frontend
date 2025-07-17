@@ -1,0 +1,78 @@
+.insertContainer{
+    animation: fadeIn 0.5s ease-in-out;
+    background-color: 	#f5f7fa;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 12px;
+    width: 60%;
+    margin: 40px auto;
+   min-height: 80vh;
+
+}
+.insertContainer input,
+.insertContainer select {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+  
+}
+
+
+fieldset{
+    border: none;
+    padding: 0;
+     margin-right: 30px;
+}
+legend{
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button{
+     background-color: #00b894;
+     color: #fff;
+     padding: 10px 25px;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     font-weight: bold;
+     transition: background-color 0.3s ease;
+}
+button:hover{
+     background-color: #00897b;
+  transform: scale(1.05);
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform:translateY(0px);
+    }
+}
+@media (max-width: 768px) {
+  .insertContainer {
+    width: 90%;
+    padding: 35px;
+    
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  legend {
+    font-size: 18px;
+  }
+}

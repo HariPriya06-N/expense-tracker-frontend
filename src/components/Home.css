@@ -1,0 +1,183 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  color: #f5f5f5;
+}
+
+
+.container {
+  width: 95%;
+  height: 60vh;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #f5f0ff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.navbar{
+  background-color: #3a3a3c;
+  color: #e0e0e0;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.appTitle {
+  text-align: center;
+  font-size: 32px;
+  color: #e0e0e0;
+  margin-bottom: 23px;
+  font-weight: bold;
+  margin-right: 20%;
+}
+.navLinks{
+  display: flex;
+  gap: 10%;
+   margin-left: 8%;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navLinks a {
+  position: relative;             
+  color: #e0e0e0;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navLinks a::after {
+  content: "";                    
+  position: absolute;            
+  left: 0;
+  bottom: -2px;                  
+  width: 0;                      
+  height: 2px;                   
+  background-color: #00b894;     
+  transition: width 0.3s ease;   
+}
+
+.navLinks a:hover::after {
+  width: 100%;                   
+}
+
+.navLinks a:hover {
+  color: #00897b;                
+}
+
+
+
+
+.insertTable {
+  width: 100%;
+  height: 50vh;
+  min-width: 600px;
+  margin-top: 30px;
+  font-size: 17px;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #555;
+  background-color: #3a3a3c;
+  color: #e0e0e0;
+  animation: slideIn 0.6s ease;
+}
+
+.insertTable th,
+.insertTable td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+.insertTable th {
+  background-color: #1e1e1e;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.insertTable tr:hover {
+  background-color: #505050;
+}
+
+.addButton {
+  background-color: #00b894;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.addButton:hover {
+  background-color: #00897b;
+  transform: scale(1.05);
+}
+
+
+.fa-edit,
+.fa-trash {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.fa-edit:hover {
+  transform: scale(1.2);
+  color: #4fc3f7;
+}
+
+.fa-trash:hover {
+  transform: scale(1.2);
+  color: #ef5350;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+@media (max-width: 768px) {
+  .tableWrapper {
+    overflow-x: auto;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .insertTable {
+    min-width: 600px; 
+    width: 100%;
+  }
+
+  .insertTable td {
+    word-break: break-word;
+    font-size: 14px;
+  }
+
+  .addButton {
+    width: 80%;
+    font-size: 15px;
+  }
+}
+
