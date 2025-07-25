@@ -3,6 +3,8 @@ import Category from "./Category";
 import "./Insert.css";
 import { useLocation,useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
+const API_BASE_URL = "https://expense-tracker-backend-production-c23b.up.railway.app";
+
 const Update=()=>{
     const [categoryList, setCategoryList] = useState([]);
 
@@ -27,7 +29,7 @@ const Update=()=>{
     return;
   }
 
-  await axios.put(`https://expense-tracker-backend-production-c23b.up.railway.app/${id}`, {
+  await axios.put(`${API_BASE_URL}/${id}`, {
     title: title.trim(),
     expense: Number(expense),
     category: category.trim(),
@@ -40,7 +42,7 @@ const Update=()=>{
 
 
     useEffect(() => {
-           axios.get("https://expense-tracker-backend-production-114e.up.railway.app/getCat")
+           axios.get(`${API_BASE_URL}/getCat`)
               .then(res => setCategoryList(res.data))
               .catch(err => console.error("Error fetching categories", err));
         }, []);
