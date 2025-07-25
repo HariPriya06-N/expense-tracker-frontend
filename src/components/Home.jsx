@@ -10,14 +10,14 @@ const Home=()=>{
     const [loading, setLoading] = useState(true);
     const getExpense=async()=>{
         setLoading(true);
-        const res=await axios.get("https://expense-tracker-backend-production-114e.up.railway.app/get");
+        const res=await axios.get("https://expense-tracker-backend-production-c23b.up.railway.app/get");
         const{data}=res;
         setObj(data);
         setLoading(false);
 
     }
     const delete_expense=async(id)=>{
-        const res=await axios.delete(`https://expense-tracker-backend-production-114e.up.railway.app/delete/${id}`);
+        const res=await axios.delete(`https://expense-tracker-backend-production-c23b.up.railway.app/delete/${id}`);
         getExpense();
     }
     const insertExpense=()=>{

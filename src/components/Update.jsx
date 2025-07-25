@@ -27,7 +27,7 @@ const Update=()=>{
     return;
   }
 
-  await axios.put(`https://expense-tracker-backend-production-114e.up.railway.app/${id}`, {
+  await axios.put(`https://expense-tracker-backend-production-c23b.up.railway.app/${id}`, {
     title: title.trim(),
     expense: Number(expense),
     category: category.trim(),

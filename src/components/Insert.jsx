@@ -23,7 +23,7 @@ const Insert=()=>{
     return;
   }
 
-  await axios.post(`https://expense-tracker-backend-production-114e.up.railway.app/insert`, {
+  await axios.post(`https://expense-tracker-backend-production-c23b.up.railway.app/insert`, {
     title: titleValue,
     expense: expenseValue,
     category: categoryValue,
@@ -33,7 +33,7 @@ const Insert=()=>{
   navigate("/");
     }
     useEffect(() => {
-           axios.get("https://expense-tracker-backend-production-114e.up.railway.app/getCat")
+           axios.get("https://expense-tracker-backend-production-c23b.up.railway.app/getCat")
               .then(res => setCategoryList(res.data))
               .catch(err => console.error("Error fetching categories", err));
         }, []);
