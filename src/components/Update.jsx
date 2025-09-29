@@ -27,7 +27,7 @@ const Update=()=>{
     return;
   }
 
-  await axios.put(`https://expense-tracker-backend-production-c23b.up.railway.app/update/${id}`, {
+  await axios.put(`https://expense-tracker-backend-viuv.onrender.com/update/${id}`, {
     title: title.trim(),
     expense: Number(expense),
     category: category.trim(),
@@ -40,7 +40,7 @@ const Update=()=>{
 
 
     useEffect(() => {
-           axios.get("https://expense-tracker-backend-production-114e.up.railway.app/getCat")
+           axios.get("https://expense-tracker-backend-viuv.onrender.com/getCat")
               .then(res => setCategoryList(res.data))
               .catch(err => console.error("Error fetching categories", err));
         }, []);

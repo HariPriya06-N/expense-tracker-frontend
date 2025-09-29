@@ -9,7 +9,7 @@ const FilterdCategory = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://expense-tracker-backend-production-c23b.up.railway.app/gettingItems/${category}`)
+        axios.get(`https://expense-tracker-backend-viuv.onrender.com/gettingItems/${category}`)
             .then(res => {
                 setItems(res.data);
             })

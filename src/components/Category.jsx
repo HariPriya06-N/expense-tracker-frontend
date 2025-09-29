@@ -12,20 +12,20 @@ const Category=()=>{
     const [msg,setMsg]=useState([]);
     
     const getCat = async () => {
-      const res=await axios.get("https://expense-tracker-backend-production-c23b.up.railway.app/getCat");
+      const res=await axios.get("http://localhost:5000/getCat");
       setMsg(res.data);
     }
 
     const insertCat=async()=>{
-        await axios.post(`https://expense-tracker-backend-production-c23b.up.railway.app/insertCat`,{"name":ref1.current.value});
+        await axios.post(`https://expense-tracker-backend-viuv.onrender.com/insertCat`,{"name":ref1.current.value});
          getCat();
     }
     const deleteCat=async(id)=>{
-        await axios.delete(`https://expense-tracker-backend-production-c23b.up.railway.app/delCat/${id}`)
+        await axios.delete(`https://expense-tracker-backend-viuv.onrender.com/delCat/${id}`)
         getCat();
     }
     const updateCat=async(id)=>{
-        await axios.put(`https://expense-tracker-backend-production-c23b.up.railway.app/updateCat/${id}`,{id:editid,name:editname})
+        await axios.put(`https://expense-tracker-backend-viuv.onrender.com/updateCat/${id}`,{id:editid,name:editname})
         setEditid(null);
         setEditname("");
         getCat();
@@ -68,7 +68,7 @@ const Category=()=>{
             <tfoot></tfoot>
         </table>
         
-        {/* insert oparation */}
+     
         <button onClick={() => setShowInput(true)}>Add New Category</button>
         <br></br>
         <br></br>

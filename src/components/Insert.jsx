@@ -10,12 +10,11 @@ const Insert=()=>{
     const navigate=useNavigate();
     const title=useRef(null);
     const expense=useRef(null);
-    // const category=useRef(null);
     const date=useRef(null);
     const insertExpense=async()=>{
         const titleValue = title.current?.value.trim();
   const expenseValue = expense.current?.value.trim();
-  const categoryValue = category1?.trim(); // from state
+  const categoryValue = category1?.trim(); 
   const dateValue = date.current?.value;
 
   if (!titleValue || !expenseValue || !categoryValue || !dateValue) {
@@ -23,7 +22,7 @@ const Insert=()=>{
     return;
   }
 
-  await axios.post(`https://expense-tracker-backend-production-c23b.up.railway.app/insert`, {
+  await axios.post(`https://expense-tracker-backend-viuv.onrender.com/insert`, {
     title: titleValue,
     expense: expenseValue,
     category: categoryValue,
@@ -33,7 +32,7 @@ const Insert=()=>{
   navigate("/");
     }
     useEffect(() => {
-           axios.get("https://expense-tracker-backend-production-c23b.up.railway.app/getCat")
+           axios.get("https://expense-tracker-backend-viuv.onrender.com/getCat")
               .then(res => setCategoryList(res.data))
               .catch(err => console.error("Error fetching categories", err));
         }, []);
